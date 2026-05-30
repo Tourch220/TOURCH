@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ультиматум учителей России</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Spectral:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
@@ -132,13 +132,13 @@
   /* Counters section */
   .counters {
     padding: 80px 20px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
   .counters-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2px;
     background: #1a1a1a;
     border: 1px solid #222;
@@ -146,7 +146,7 @@
 
   .counter-block {
     background: var(--dark);
-    padding: 48px 40px;
+    padding: 48px 32px;
     position: relative;
     overflow: hidden;
   }
@@ -164,11 +164,13 @@
 
   .counter-value {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(28px, 4vw, 48px);
+    font-size: clamp(22px, 3vw, 38px);
     color: #ffffff;
-    line-height: 1;
+    line-height: 1.2;
     letter-spacing: 1px;
-    word-break: break-all;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
   .counter-type {
@@ -240,9 +242,9 @@
   h2:first-of-type { margin-top: 0; }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
-    color: #c8c0b4;
+    color: #d8d0c8;
     margin-bottom: 16px;
   }
 
@@ -366,6 +368,19 @@
     50% { opacity: 0.4; transform: scale(0.8); }
   }
 
+  /* Anchor links */
+  .counter-source {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(224,48,32,0.3);
+    transition: border-color 0.2s;
+  }
+  .counter-source:hover { border-color: var(--red); }
+
   /* Divider */
   .divider {
     border: none;
@@ -410,6 +425,7 @@
         Каждую секунду войны —<br>
         <strong>~1 493 056 рублей</strong> в пепел
       </div>
+      <a href="#full-cost" class="counter-source">↓ Методика расчёта</a>
     </div>
 
     <div class="counter-block">
@@ -420,6 +436,7 @@
         Каждые ~134 секунды —<br>
         <strong>ещё один человек</strong> убит или ранен
       </div>
+      <a href="#losses-method" class="counter-source">↓ Методика подсчёта потерь</a>
     </div>
 
     <div class="counter-block">
@@ -450,24 +467,24 @@
 
   <p><span class="highlight">Денацификация Украины.</span> Итог: не поддаётся статистическому измерению.</p>
 
-  <h2>ЦЕНА ЭТИХ «ДОСТИЖЕНИЙ»</h2>
+  <h2 style="white-space: nowrap; font-size: clamp(20px, 3.5vw, 48px);">ЦЕНА ЭТИХ «ДОСТИЖЕНИЙ»</h2>
 
   <p><span class="highlight">1. Человеческий капитал.</span> Ниже — только официальные заявления российского правительства (источники: РБК, Коммерсантъ, Известия):</p>
 
   <ul class="sources">
-    <li>Частичная мобилизация 2022: <strong style="color:#e8e0d4">300 000 чел.</strong> (доклад Шойгу Путину, РБК)</li>
-    <li>За 2023 год: <strong style="color:#e8e0d4">500 000 чел.</strong> (заявление Медведева, РБК)</li>
-    <li>За 2024 год: <strong style="color:#e8e0d4">490 000 чел.</strong> (заявление Медведева, РБК)</li>
-    <li>За 2025 год: <strong style="color:#e8e0d4">410 000 чел.</strong> (заявление Путина, прямая линия, РБК)</li>
+    <li>Частичная мобилизация 2022: <strong style="color:#fff">300 000 чел.</strong> (доклад Шойгу Путину, РБК)</li>
+    <li>За 2023 год: <strong style="color:#fff">500 000 чел.</strong> (заявление Медведева, РБК)</li>
+    <li>За 2024 год: <strong style="color:#fff">490 000 чел.</strong> (заявление Медведева, РБК)</li>
+    <li>За 2025 год: <strong style="color:#fff">410 000 чел.</strong> (заявление Путина, прямая линия, РБК)</li>
   </ul>
 
   <p><span class="highlight">Итого направлено на службу: ~1 700 000 человек.</span></p>
   <p>18 сентября 2025 года Путин лично заявил: <em>«На линии боевого соприкосновения свыше 700 000 человек»</em> (РБК).</p>
-  <p><span class="highlight">1 700 000 − 700 000 = ~1 000 000 человек.</span> Это разница которую официальная Россия никак не объясняет. Без западной пропаганды. Просто их собственная арифметика.</p>
+  <p id="losses-method"><span class="highlight">1 700 000 − 700 000 = ~1 000 000 человек.</span> Это разница которую официальная Россия никак не объясняет. Без западной пропаганды. Просто их собственная арифметика.</p>
 
-  <div class="formula">
+  <div class="formula" id="full-cost">
     Стоимость человеческого капитала одного погибшего:<br>
-    <strong>(100 360 × 12 × 30)</strong> — зарплата × 30 лет стажа<br>
+    <strong>(100 360 × 12 × 30)</strong> — средняя зарплата по данным Росстата 2025 × 30 лет стажа<br>
     <strong>+ (100 360 × 0,13 × 12 × 30)</strong> — НДФЛ 13%<br>
     <strong>+ (100 360 × 0,30 × 12 × 30)</strong> — страховые взносы 30%<br>
     <strong>+ (100 360 × 12 × 30 × 0,7 × 1,5)</strong> — потребительский мультипликатор ВВП<br>
@@ -502,9 +519,11 @@
 
   <p>Каждый день этой войны обходится в ~129 млрд рублей и ~640 человеческих жизней. Пока вы читаете это предложение — счётчик идёт.</p>
 
+  <h2>ДЛЯ ПРИМЕРА</h2>
+
   <p>Средняя стоимость АЭС с двумя блоками — $16,4 млрд (~1,18 трлн руб. по курсу 72 руб/$). На 200 трлн рублей можно было построить <span class="highlight">~169 атомных электростанций</span> → выработка ~2 873 ТВт·ч/год → <span class="highlight">~10% мирового потребления электроэнергии</span> — больше чем вся атомная энергетика Франции и Китая вместе взятых.</p>
 
-  <p><em>Вместо обеспечения планеты чистой энергией — пепел, руины и трупы. Это война которая пожирает саму себя — и это не публицистика, а арифметика.</em></p>
+  <p><em>Вместо обеспечения планеты чистой энергией — пепел, руины и трупы.</em></p>
 
   <h2>РЕПУТАЦИЯ СТРАНЫ</h2>
 
