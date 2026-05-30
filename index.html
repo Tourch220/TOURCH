@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ультиматум учителей России</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Spectral:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
@@ -12,7 +13,6 @@
     --red: #e03020;
     --dark: #0a0a0a;
     --ash: #1a1a1a;
-    --smoke: #2a2a2a;
     --grey: #bbb;
     --light: #ffffff;
     --accent: #ff4433;
@@ -29,7 +29,6 @@
     overflow-x: hidden;
   }
 
-  /* Grain overlay */
   body::before {
     content: '';
     position: fixed;
@@ -40,7 +39,6 @@
     opacity: 0.4;
   }
 
-  /* Hero */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -85,10 +83,7 @@
     animation: fadeUp 0.8s ease forwards 0.4s;
   }
 
-  .title span {
-    color: var(--red);
-    display: block;
-  }
+  .title span { color: var(--red); display: block; }
 
   .subtitle {
     font-size: 13px;
@@ -99,7 +94,6 @@
     animation: fadeUp 0.8s ease forwards 0.6s;
   }
 
-  /* War start date */
   .war-since {
     margin-top: 48px;
     font-size: 12px;
@@ -109,7 +103,6 @@
     animation: fadeUp 0.8s ease forwards 0.8s;
   }
 
-  /* Days counter */
   .days-counter {
     margin-top: 16px;
     font-family: 'Bebas Neue', sans-serif;
@@ -118,6 +111,17 @@
     line-height: 1;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 1s;
+  }
+
+  .time-counter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 5vw, 56px);
+    color: var(--red);
+    line-height: 1;
+    letter-spacing: 4px;
+    margin-top: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.2s;
   }
 
   .days-label {
@@ -129,7 +133,6 @@
     animation: fadeUp 0.8s ease forwards 1.1s;
   }
 
-  /* Counters section */
   .counters {
     padding: 80px 20px;
     max-width: 1200px;
@@ -154,12 +157,18 @@
   .counter-block::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
     background: var(--red);
     opacity: 0.6;
+  }
+
+  .counter-type {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #ccc;
+    text-transform: uppercase;
+    margin-bottom: 16px;
   }
 
   .counter-value {
@@ -169,16 +178,6 @@
     line-height: 1.2;
     letter-spacing: 1px;
     word-break: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-  }
-
-  .counter-type {
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #ccc;
-    text-transform: uppercase;
-    margin-bottom: 16px;
   }
 
   .counter-unit {
@@ -197,16 +196,23 @@
     line-height: 1.6;
   }
 
-  .counter-daily strong {
-    color: var(--accent);
-    font-weight: 600;
-  }
+  .counter-daily strong { color: var(--accent); font-weight: 600; }
 
-  /* Pulse dot */
+  .counter-source {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(224,48,32,0.3);
+    transition: border-color 0.2s;
+  }
+  .counter-source:hover { border-color: var(--red); }
+
   .pulse {
     display: inline-block;
-    width: 6px;
-    height: 6px;
+    width: 6px; height: 6px;
     background: var(--red);
     border-radius: 50%;
     margin-right: 8px;
@@ -214,7 +220,6 @@
     vertical-align: middle;
   }
 
-  /* Text section */
   .text-section {
     max-width: 720px;
     margin: 0 auto;
@@ -232,11 +237,14 @@
 
   h2 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(28px, 5vw, 48px);
+    font-size: clamp(24px, 4vw, 44px);
     letter-spacing: 2px;
     color: var(--light);
     margin: 48px 0 20px;
     line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   h2:first-of-type { margin-top: 0; }
@@ -248,58 +256,48 @@
     margin-bottom: 16px;
   }
 
-  .highlight {
-    color: var(--light);
-    font-weight: 600;
-  }
+  .highlight { color: var(--light); font-weight: 600; }
 
-  /* Formula block */
   .formula {
     background: var(--ash);
     border-left: 3px solid var(--red);
     padding: 24px 28px;
     margin: 24px 0;
-    font-size: 14px;
+    font-size: 15px;
     color: #aaa;
     line-height: 2;
     font-style: italic;
   }
 
-  .formula strong {
-    color: var(--light);
-    font-style: normal;
-    font-weight: 600;
-  }
+  .formula strong { color: var(--light); font-style: normal; font-weight: 600; }
 
-  /* Sources list */
   .sources {
     margin: 12px 0 24px 20px;
-    font-size: 13px;
+    font-size: 16px;
     color: var(--grey);
     line-height: 2;
   }
 
   .sources li { margin-bottom: 2px; }
 
-  /* Demand block */
+  .cost-list {
+    margin: 16px 0;
+    padding: 24px 28px;
+    background: var(--ash);
+    border-left: 3px solid var(--red);
+    font-size: 17px;
+    line-height: 2;
+    color: #ccc;
+  }
+
+  .cost-list strong { color: white; }
+
   .demand {
     background: var(--red);
     color: white;
     padding: 48px 40px;
     margin: 60px 0;
     position: relative;
-  }
-
-  .demand::before {
-    content: '!';
-    position: absolute;
-    top: -20px;
-    right: 40px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 80px;
-    color: var(--red);
-    opacity: 0.3;
-    line-height: 1;
   }
 
   .demand p {
@@ -315,9 +313,16 @@
     color: white;
     line-height: 1;
     margin-bottom: 16px;
+    letter-spacing: 3px;
   }
 
-  /* Countdown to Sep 1 */
+  .demand .demand-year {
+    font-size: 56px;
+    letter-spacing: 8px;
+    margin-left: 12px;
+    opacity: 0.95;
+  }
+
   .countdown {
     background: var(--ash);
     border: 1px solid #2a2a2a;
@@ -347,7 +352,6 @@
     margin-top: 8px;
   }
 
-  /* Footer */
   footer {
     border-top: 1px solid #1a1a1a;
     padding: 40px 24px;
@@ -357,7 +361,12 @@
     letter-spacing: 1px;
   }
 
-  /* Animations */
+  .divider {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 48px 0;
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -368,52 +377,30 @@
     50% { opacity: 0.4; transform: scale(0.8); }
   }
 
-  /* Anchor links */
-  .counter-source {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: var(--red);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(224,48,32,0.3);
-    transition: border-color 0.2s;
-  }
-  .counter-source:hover { border-color: var(--red); }
-
-  /* Divider */
-  .divider {
-    border: none;
-    border-top: 1px solid #1a1a1a;
-    margin: 48px 0;
-  }
-
-  /* Mobile */
   @media (max-width: 600px) {
     .counter-block { padding: 32px 24px; }
     .demand { padding: 32px 24px; }
     .text-section { padding: 60px 20px; }
+    h2 { white-space: normal; font-size: clamp(20px, 5vw, 36px); }
   }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="label">● ЖИВОЙ СЧЁТЧИК ВОЙНЫ</div>
+  <div class="label">&#9679; ЖИВОЙ СЧЁТЧИК ВОЙНЫ</div>
   <div class="title">
     УЛЬТИМАТУМ
     <span>УЧИТЕЛЕЙ</span>
     РОССИИ
   </div>
   <div class="subtitle">ОТ УЧИТЕЛЕЙ РОССИИ И НЕРАВНОДУШНЫХ ГРАЖДАН</div>
-
   <div class="war-since">ВОЙНА ИДЁТ УЖЕ</div>
   <div class="days-counter" id="dayCounter">0</div>
   <div class="days-label">ДНЕЙ</div>
+  <div class="time-counter" id="timeCounter">00:00:00</div>
 </section>
 
-<!-- LIVE COUNTERS -->
 <section class="counters">
   <div class="counters-grid">
 
@@ -425,7 +412,7 @@
         Каждую секунду войны —<br>
         <strong>~1 493 056 рублей</strong> в пепел
       </div>
-      <a href="#full-cost" class="counter-source">↓ Методика расчёта</a>
+      <a href="#full-cost" class="counter-source">&#8595; Методика расчёта</a>
     </div>
 
     <div class="counter-block">
@@ -436,7 +423,7 @@
         Каждые ~134 секунды —<br>
         <strong>ещё один человек</strong> убит или ранен
       </div>
-      <a href="#losses-method" class="counter-source">↓ Методика подсчёта потерь</a>
+      <a href="#losses-method" class="counter-source">&#8595; Методика подсчёта потерь</a>
     </div>
 
     <div class="counter-block">
@@ -445,14 +432,13 @@
       <div class="counter-unit">дней до 1 сентября 2026</div>
       <div class="counter-daily">
         Дата когда школы России<br>
-        <strong>не откроются</strong> если война продолжится
+        <strong><a href="#demand" style="color:var(--accent); text-decoration:none; border-bottom: 1px solid rgba(255,68,51,0.4);">не откроются</a></strong> если война продолжится
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- TEXT -->
 <div class="text-section">
 
   <div class="section-label">// 50 МЕСЯЦЕВ ВОЙНЫ — ВРЕМЯ ПОДВЕСТИ ИТОГИ</div>
@@ -461,67 +447,71 @@
 
   <h2>ЗАЯВЛЕННЫЕ ЦЕЛИ И ИХ РЕЗУЛЬТАТЫ</h2>
 
-  <p><span class="highlight">Остановить расширение НАТО на восток.</span> Итог: общая граница России с НАТО выросла на 1500 км. Финляндия в НАТО, Швеция в НАТО. Балтийское море и флот теперь окружены альянсом. Артиллерия и дроны альянса теперь смогут при необходимости обстреливать единственную артерию связывающую Россию с Северным флотом.</p>
+  <p><span class="highlight">Остановить расширение НАТО на восток.</span> Итог: общая граница России с НАТО выросла на 1500 км. Финляндия в НАТО, Швеция в НАТО. Балтийское море и флот теперь окружены альянсом. Артиллерия и дроны альянса теперь смогут при необходимости простреливать единственную артерию связывающую Россию с её Северным флотом.</p>
 
   <p><span class="highlight">Демилитаризация Украины.</span> Итог: ежедневные удары по городам России, уничтожение стратегических объектов поставлено на поток. Украина уверенно движется в сторону мирового лидерства в сфере беспилотной авиации.</p>
 
   <p><span class="highlight">Денацификация Украины.</span> Итог: не поддаётся статистическому измерению.</p>
 
-  <h2 style="white-space: nowrap; font-size: clamp(20px, 3.5vw, 48px);">ЦЕНА ЭТИХ «ДОСТИЖЕНИЙ»</h2>
+  <h2>ЦЕНА ЭТИХ «ДОСТИЖЕНИЙ»</h2>
 
-  <p><span class="highlight">1. Человеческий капитал.</span> Ниже — только официальные заявления российского правительства (источники: РБК, Коммерсантъ, Известия):</p>
+  <p><span class="highlight">1. Человеческий капитал.</span> Ниже приведены только официальные заявления о призыве на войну — источники РБК, Коммерсантъ, Известия:</p>
 
   <ul class="sources">
     <li>Частичная мобилизация 2022: <strong style="color:#fff">300 000 чел.</strong> (доклад Шойгу Путину, РБК)</li>
     <li>За 2023 год: <strong style="color:#fff">500 000 чел.</strong> (заявление Медведева, РБК)</li>
-    <li>За 2024 год: <strong style="color:#fff">490 000 чел.</strong> (заявление Медведева, РБК)</li>
-    <li>За 2025 год: <strong style="color:#fff">410 000 чел.</strong> (заявление Путина, прямая линия, РБК)</li>
+    <li>За 2024 год: <strong style="color:#fff">490 000 чел.</strong> (450 000 контрактников + 40 000 добровольцев, заявление Медведева, РБК)</li>
+    <li>За 2025 год: <strong style="color:#fff">410 000 чел.</strong> (заявление Путина, прямая линия декабрь 2025, РБК)</li>
   </ul>
 
   <p><span class="highlight">Итого направлено на службу: ~1 700 000 человек.</span></p>
   <p>18 сентября 2025 года Путин лично заявил: <em>«На линии боевого соприкосновения свыше 700 000 человек»</em> (РБК).</p>
   <p id="losses-method"><span class="highlight">1 700 000 − 700 000 = ~1 000 000 человек.</span> Это разница которую официальная Россия никак не объясняет. Без западной пропаганды. Просто их собственная арифметика.</p>
 
+  <p>Стоимость человеческого капитала на одного погибшего — того что он уже никогда не заработает, не уплатит в виде налогов и не потратит в экономике страны. Средний возраст погибшего — около 35 лет, оставшийся рабочий стаж — 30 лет:</p>
+
   <div class="formula" id="full-cost">
-    Стоимость человеческого капитала одного погибшего:<br>
-    <strong>(100 360 × 12 × 30)</strong> — средняя зарплата по данным Росстата 2025 × 30 лет стажа<br>
-    <strong>+ (100 360 × 0,13 × 12 × 30)</strong> — НДФЛ 13%<br>
-    <strong>+ (100 360 × 0,30 × 12 × 30)</strong> — страховые взносы 30%<br>
-    <strong>+ (100 360 × 12 × 30 × 0,7 × 1,5)</strong> — потребительский мультипликатор ВВП<br>
+    <strong>(Ср. зарплата 100 360 руб. по данным Росстата 2025 × 12 мес. × 30 лет оставшегося стажа)</strong><br>
+    + (НДФЛ 13% от зарплаты × 12 мес. × 30 лет)<br>
+    + (Страховые взносы 30% от зарплаты × 12 мес. × 30 лет)<br>
+    + (Потребительские расходы 70% от зарплаты × 12 мес. × 30 лет × мультипликатор ВВП 1,5)<br>
+    = (100 360 × 12 × 30) + (100 360 × 0,13 × 12 × 30) + (100 360 × 0,30 × 12 × 30) + (100 360 × 12 × 30 × 0,7 × 1,5)<br>
     <strong>= ~91 000 000 рублей на одного погибшего</strong><br><br>
     По официальной российской арифметике (~1 000 000 потерь):<br>
     <strong>1 000 000 × 91 000 000 = ~91 трлн рублей</strong>
   </div>
 
-  <p>Это деньги которые никогда не будут заработаны, потрачены, уплачены в виде налогов. Дети которые не родятся.</p>
+  <p>Это деньги которые никогда не будут заработаны, потрачены, уплачены в виде налогов — и дети которые не родятся.</p>
 
   <hr class="divider">
 
-  <p><span class="highlight">2. Финансовые потери.</span> Военные расходы России за 2022–2024 годы — около 37 трлн рублей. В 2025 году — 16,5 трлн рублей, рекорд со времён холодной войны. Итого: более 53 трлн рублей прямых военных расходов. Без учёта восстановления Украины которое Россия будет обязана финансировать.</p>
+  <p><span class="highlight">2. Финансовые потери.</span> Военные расходы России за 2022–2024 годы составили около 37 трлн рублей. В 2025 году на войну было заложено 16,5 трлн рублей — рекорд со времён холодной войны. Итого на сегодня — более 53 трлн рублей прямых военных расходов. И это без учёта будущих расходов на восстановление Украины которое Россия будет обязана финансировать.</p>
 
-  <p><span class="highlight">3. Образование, медицина и ЖКХ.</span> За годы путинского правления закрыто более 26 тысяч школ — в среднем более тысячи в год. Количество больниц сократилось в четыре раза: с 4300 до 1060. По данным Счётной палаты, нужно менять 5% коммунальных сетей в год — меняют едва 1%. За 25 лет сменили ~25% при необходимых 125%. Износ инженерных сетей к 2024 году — 75%. Всё это на фоне 25 лет беспрецедентно высоких нефтяных доходов. <span class="highlight">Это целенаправленная политика государства.</span></p>
+  <p><span class="highlight">3. Образование, экономика, медицина и ЖКХ.</span> За годы путинского правления Россия лишилась более 26 тысяч школ — в среднем более тысячи в год. Космическая программа уничтожена. Высокотехнологичные отрасли занимают ничтожную долю ВВП — и это после 25 лет рекордно высоких цен на нефть. Количество больниц сократилось в четыре раза: с 4300 до 1060. Экономическая и научная изоляция. К концу этого года дыра в бюджете под 10 трлн рублей по признанию самих депутатов. По данным Счётной палаты, в системе ЖКХ нужно менять по 5% сетей в год — на деле меняют едва 1%. За 25 лет сменили ~25% при необходимых 125%. К концу 2024 года совокупный износ инженерных сетей достиг 75%. <span class="highlight">Уничтожение социалки, образования и здравоохранения — это целенаправленная политика государства.</span></p>
 
-  <p><span class="highlight">4. Восстановление.</span> По оценке Всемирного банка, ООН и Еврокомиссии — $588 млрд (~55 трлн руб.) только на восстановление Украины. Плюс российские приграничные регионы. Плюс сотни тысяч физически и психологически травмированных людей с обеих сторон.</p>
+  <p><span class="highlight">4. Восстановление Украины и России.</span> По совместной оценке Всемирного банка, ООН, Еврокомиссии и правительства Украины — $588 млрд (около 55 трлн рублей) — и эта сумма растёт с каждым месяцем войны. Ущерб от атак на российские приграничные регионы оценён в 600 млрд рублей. Реальные расходы на восстановление Курской, Белгородской, Брянской и других областей и крупнейших перерабатывающих предприятий — ещё несколько трлн рублей.</p>
 
-  <p><span class="highlight">6. Экология.</span> Разливы нефти, уничтожение водохранилищ, загрязнение почв на тысячах квадратных километров. Расплачиваться будут следующие поколения.</p>
+  <p><span class="highlight">5. Реабилитация и социализация ветеранов.</span> Сотни тысяч физически и психологически травмированных людей, которых предстоит вернуть к мирной жизни. Это десятилетия работы и миллиарды рублей.</p>
+
+  <p><span class="highlight">6. Экологический ущерб.</span> Разливы нефти, уничтожение водохранилищ, загрязнение почв и воды на тысячах квадратных километров. Это не поддаётся быстрой финансовой оценке — расплачиваться будут следующие поколения.</p>
 
   <h2>ПОЛНАЯ СТОИМОСТЬ ВОЙНЫ</h2>
 
-  <div class="formula">
-    Прямые военные расходы 2022–2026: <strong>&gt; 53 трлн руб.</strong><br>
+  <div class="cost-list">
+    Прямые военные расходы 2022–2026: <strong>более 53 трлн руб.</strong><br>
     Уничтоженный человеческий капитал: <strong>~91 трлн руб.</strong><br>
     Восстановление Украины: <strong>~55 трлн руб.</strong><br>
     Восстановление России: <strong>несколько трлн руб.</strong><br>
-    Реабилитация + экология: <strong>триллионы на десятилетия</strong><br>
-    ───────────────────────────────<br>
-    <strong>ИТОГО: &gt; 200 трлн рублей</strong>
+    Реабилитация ветеранов + экологический ущерб: <strong>триллионы рублей на десятилетия</strong><br>
+    ────────────────────────────────────────<br>
+    <strong>ИТОГО: более 200 трлн рублей</strong> без учёта перманентной экологической катастрофы длиною в 50 месяцев и реабилитации ветеранов.
   </div>
 
   <p>Каждый день этой войны обходится в ~129 млрд рублей и ~640 человеческих жизней. Пока вы читаете это предложение — счётчик идёт.</p>
 
   <h2>ДЛЯ ПРИМЕРА</h2>
 
-  <p>Средняя стоимость АЭС с двумя блоками — $16,4 млрд (~1,18 трлн руб. по курсу 72 руб/$). На 200 трлн рублей можно было построить <span class="highlight">~169 атомных электростанций</span> → выработка ~2 873 ТВт·ч/год → больше чем вся существующая атомная энергетика планеты вместе взятая.</p>
+  <p>Средняя стоимость современной АЭС с двумя энергоблоками — около $16,4 млрд (~1,18 трлн рублей при курсе 72 руб/$). На 200 трлн рублей можно было построить <span class="highlight">~169 атомных электростанций</span> с выработкой ~2 873 ТВт·ч/год — <span class="highlight">больше чем вся существующая атомная энергетика планеты.</span></p>
 
   <p>Илон Маск потратил около $12 млрд на создание многоразовых ракет — и перевернул всю космическую индустрию. <span class="highlight">На деньги этой войны такую программу могло получить буквально каждое (каждое, Карл!!) из 195 существующих государств планеты — и ещё осталась бы сдача в 32 триллиона рублей.</span></p>
 
@@ -529,29 +519,25 @@
 
   <h2>РЕПУТАЦИЯ СТРАНЫ</h2>
 
-  <p>Россия приравнена к государству-агрессору в глазах большей части человечества. Союзники — Северная Корея, Иран, Талибан. Скажи мне кто твой друг. На десятилетия, если не на столетия — ненависть украинского народа, который ничего плохого России не сделал.</p>
+  <p>Россию приравнивают к государству-агрессору большинство стран планеты, кроме наших «союзников» — Северной Кореи, Ирана, Талибана. Вспоминается пословица: скажи мне кто твой друг и я скажу кто ты. В подарок — на десятилетия, если не на столетия, ненависть украинского народа ко всему русскому/российскому.</p>
 
   <h2>ВЫВОД</h2>
 
-  <p>Эта война — ежедневное преступление не только против народов России и Украины, но и буквально против всего человечества и будущих поколений. Все основные направления государственной деятельности в интересах страны — провалены.</p>
+  <p>Эта война — ежедневное преступление не только против народов России и Украины, но и буквально против всего человечества (с точки зрения финансового и экологического ущерба) и будущих поколений. При этом все основные направления внутренней государственной политики, если смотреть с точки зрения интересов граждан страны — провалены.</p>
 
-  <!-- DEMAND -->
-  <div class="demand">
-    <div class="demand-date">1 СЕНТЯБРЯ 2026</div>
+  <div class="demand" id="demand">
+    <div class="demand-date">1 СЕНТЯБРЯ<span class="demand-year">2026</span></div>
     <p>Мы — учителя России и неравнодушные граждане — требуем прекратить боевые действия <strong>до 1 сентября 2026 года.</strong></p>
     <p>Если это требование не будет выполнено — <strong>1 сентября школы в России не откроются.</strong></p>
     <p>Мы понимаем что на учителей будет оказано финансовое давление. Поэтому призываем всех неравнодушных — родителей, граждан России и диаспору по всему миру — организоваться на местах для поддержки учителей на период забастовки.</p>
     <p><strong>Нам некуда отступать. Буквально.</strong></p>
   </div>
 
-  <!-- COUNTDOWN -->
   <div class="countdown">
     <div class="countdown-label">ДО 1 СЕНТЯБРЯ 2026 ОСТАЛОСЬ</div>
     <div class="countdown-value" id="sep1countdown">—</div>
     <div class="countdown-sub">ДНЕЙ</div>
   </div>
-
-
 
 </div>
 
@@ -562,28 +548,24 @@
 <script>
   const warStart = new Date('2022-02-24T00:00:00');
   const sep1 = new Date('2026-09-01T00:00:00');
-
-  // Per second rates
-  const RUBLES_PER_SEC = 129e9 / 86400;   // ~1,493,056 rub/sec
-  const LIVES_PER_SEC  = 643 / 86400;      // ~0.00744 per sec
+  const RUBLES_PER_SEC = 129e9 / 86400;
+  const LIVES_PER_SEC  = 643 / 86400;
 
   function update() {
     const now = new Date();
     const secWar = (now - warStart) / 1000;
 
-    // Days of war
-    const days = Math.floor(secWar / 86400);
-    document.getElementById('dayCounter').textContent = days.toLocaleString('ru-RU');
+    document.getElementById('dayCounter').textContent = Math.floor(secWar / 86400).toLocaleString('ru-RU');
 
-    // Money — show full rubles, ticking every second
-    const rubles = Math.round(secWar * RUBLES_PER_SEC);
-    document.getElementById('moneyCounter').textContent = rubles.toLocaleString('ru-RU');
+    // Hours:minutes:seconds of current day
+    const secToday = Math.floor(secWar % 86400);
+    const hh = String(Math.floor(secToday / 3600)).padStart(2, '0');
+    const mm = String(Math.floor((secToday % 3600) / 60)).padStart(2, '0');
+    const ss = String(secToday % 60).padStart(2, '0');
+    document.getElementById('timeCounter').textContent = hh + ':' + mm + ':' + ss;
+    document.getElementById('moneyCounter').textContent = Math.round(secWar * RUBLES_PER_SEC).toLocaleString('ru-RU');
+    document.getElementById('livesCounter').textContent = Math.floor(secWar * LIVES_PER_SEC).toLocaleString('ru-RU');
 
-    // Lives — show as integer, increments roughly every 134 seconds
-    const lives = Math.floor(secWar * LIVES_PER_SEC);
-    document.getElementById('livesCounter').textContent = lives.toLocaleString('ru-RU');
-
-    // Days to Sep 1
     const msToDday = sep1 - now;
     if (msToDday > 0) {
       const dLeft = Math.ceil(msToDday / 86400000);
