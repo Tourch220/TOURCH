@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ультиматум учителей России</title>
+<title>Счётчики войны</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Spectral:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -421,11 +421,9 @@
 <section class="hero">
   <div class="label">&#9679; ЖИВОЙ СЧЁТЧИК ВОЙНЫ</div>
   <div class="title">
-    УЛЬТИМАТУМ
-    <span>УЧИТЕЛЕЙ</span>
-    РОССИИ
+    СЧЁТЧИКИ
+    <span>ВОЙНЫ</span>
   </div>
-  <div class="subtitle">ОТ УЧИТЕЛЕЙ РОССИИ И НЕРАВНОДУШНЫХ ГРАЖДАН</div>
   <div class="war-since">ВОЙНА ИДЁТ УЖЕ</div>
   <div class="days-counter" id="dayCounter">0</div>
   <div class="days-label">ДНЕЙ</div>
@@ -560,29 +558,18 @@
 
   <p>Эта война — ежедневное преступление не только против народов России и Украины, но и буквально против всего человечества (с точки зрения финансового и экологического ущерба) и будущих поколений. При этом все основные направления внутренней государственной политики, если смотреть с точки зрения интересов граждан страны — провалены.</p>
 
-  <div class="demand" id="demand">
-    <div class="demand-date">1 СЕНТЯБРЯ<span class="demand-year">2026</span></div>
-    <p>Мы — учителя России и неравнодушные граждане — требуем прекратить боевые действия <strong>до 1 сентября 2026 года.</strong></p>
-    <p>Если это требование не будет выполнено — <strong>1 сентября школы в России не откроются.</strong></p>
-    <p>Мы понимаем что на учителей будет оказано финансовое давление. Поэтому призываем всех неравнодушных — родителей, граждан России и диаспору по всему миру — организоваться на местах для поддержки учителей на период забастовки.</p>
-    <p><strong>Нам некуда отступать. Буквально.</strong></p>
-  </div>
 
-  <div class="countdown">
-    <div class="countdown-label">ДО 1 СЕНТЯБРЯ 2026 ОСТАЛОСЬ</div>
-    <div class="countdown-value" id="sep1countdown">—</div>
-    <div class="countdown-sub">ДНЕЙ</div>
-  </div>
+
+
 
 </div>
 
 <footer>
-  УЛЬТИМАТУМ УЧИТЕЛЕЙ РОССИИ · 2026
+  СЧЁТЧИКИ ВОЙНЫ · С 24.02.2022
 </footer>
 
 <script>
   const warStart = new Date('2022-02-24T00:00:00');
-  const sep1 = new Date('2026-09-01T00:00:00');
   const RUBLES_PER_SEC = 129e9 / 86400;
   const LIVES_PER_SEC  = 643 / 86400;
 
@@ -601,15 +588,7 @@
     document.getElementById('moneyCounter').textContent = Math.round(secWar * RUBLES_PER_SEC).toLocaleString('ru-RU');
     document.getElementById('livesCounter').textContent = Math.floor(secWar * LIVES_PER_SEC).toLocaleString('ru-RU');
 
-    const msToDday = sep1 - now;
-    if (msToDday > 0) {
-      const dLeft = Math.ceil(msToDday / 86400000);
-      document.getElementById('daysLeft').textContent = dLeft.toLocaleString('ru-RU');
-      document.getElementById('sep1countdown').textContent = dLeft.toLocaleString('ru-RU');
-    } else {
-      document.getElementById('daysLeft').textContent = '0';
-      document.getElementById('sep1countdown').textContent = 'СРОК ИСТЁК';
-    }
+
   }
 
   update();
