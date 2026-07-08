@@ -173,11 +173,15 @@
 
   .counter-value {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(22px, 3vw, 38px);
+    font-size: clamp(36px, 4vw, 56px);
     color: #ffffff;
     line-height: 1.2;
     letter-spacing: 1px;
     word-break: break-word;
+  }
+
+  .counter-block--center .counter-value {
+    color: var(--red);
   }
 
   .counter-unit {
@@ -426,9 +430,7 @@
     СЧЁТЧИКИ
     <span>ВОЙНЫ</span>
   </div>
-  <div class="war-since">ВОЙНА ИДЁТ УЖЕ</div>
-  <div class="days-counter" id="dayCounter">0</div>
-  <div class="days-label">ДНЕЙ</div>
+  <div class="war-since">С 24 ФЕВРАЛЯ 2022</div>
   <div class="time-counter" id="timeCounter">00:00:00</div>
 </section>
 
@@ -444,6 +446,16 @@
         <strong>~1 493 056 рублей</strong> в пепел
       </div>
       <a href="#full-cost" class="counter-source">&#8595; Методика расчёта</a>
+    </div>
+
+    <div class="counter-block counter-block--center">
+      <div class="counter-type"><span class="pulse"></span>Война идёт уже</div>
+      <div class="counter-value" id="dayCounter">0</div>
+      <div class="counter-unit">дней</div>
+      <div class="counter-daily">
+        С 24 февраля 2022 года —<br>
+        <strong>каждый день</strong> продолжается
+      </div>
     </div>
 
     <div class="counter-block">
