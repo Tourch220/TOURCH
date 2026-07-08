@@ -575,6 +575,9 @@
 </footer>
 
 <script>
+  window.onbeforeunload = function() { window.scrollTo(0, 0); }
+  window.onload = function() { window.scrollTo(0, 0); }
+
   const warStart = new Date('2022-02-24T00:00:00');
   const RUBLES_PER_SEC = 129e9 / 86400;
   const LIVES_PER_SEC  = 643 / 86400;
